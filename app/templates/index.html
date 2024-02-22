@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Client Outreach Generator</title>
+</head>
+<body>
+    <form method="post">
+        <div><h2>OutreachGPT</h2>
+        <h3>Client Outreach Generator</h3>
+        </div><br>
+
+        <input type="text" id="name" name="name" placeholder="Your Name"><br><br>
+        
+        <input type="text" id="phone_number" name="phone_number" placeholder="Your Phone Number"><br><br>
+
+        <input type="text" id="company_name" name="company_name" placeholder="Your Company Name"><br><br>
+
+        <input type="text" id="client_name" name="client_name" placeholder="Client's Name"><br><br>
+
+        <input type="text" id="occasion" name="occasion" placeholder="Occasion"><br><br>
+
+        <select id="tone" name="tone">
+            <option value="formal">Formal</option>
+            <option value="casual">Casual</option>
+        </select><br><br>
+        <div id="container">
+        <input type="submit" name="generate_text" value="Generate Text">&nbsp;&nbsp;<input type="submit" name="generate_email" value="Generate Email">
+        </div><br>
+        <p id="creator">Website by: Marc Jason T. David</p>
+    </form>
+
+    {% if message %}
+        <textarea id="genmessage" name="genmessagee" rows="10" cols="50">{{ message }}</textarea>
+    {% endif %}
+    <br><button class="button" onclick="copyToClipboard()">Copy to clipboard</button>
+
+    <script>
+        function copyToClipboard() {
+            var copyText = document.getElementById("genmessage");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Copied the text: " + copyText.value);
+        }
+    </script>
+</body>
+</html>
