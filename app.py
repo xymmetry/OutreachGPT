@@ -2,14 +2,16 @@ from flask import Flask, render_template, request
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-from pandas.io import clipboard
 
 load_dotenv()
 
 app = Flask(__name__)
 
-API_KEY = os.getenv("API_KEY")
-client = OpenAI(api_key=API_KEY)
+key = os.getenv("OPENAI_API_KEY")
+if key is None:
+    raise Exception("OPENAI_API_KEY env variable not set.")
+
+client = OpenAI(api_key=key)
 
 
 @app.route('/', methods=['GET','POST'])
@@ -44,4 +46,4 @@ def generate():
     return render_template('index.html', message=message)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
