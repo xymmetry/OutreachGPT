@@ -12,19 +12,22 @@
         <h3>Client Outreach Generator</h3>
         </div><br>
 
-        <input type="text" id="name" name="name" placeholder="Your Name"><br><br>
+        <input type="text" id="name" name="name" value="{{ name }}"><br><br>
         
-        <input type="text" id="phone_number" name="phone_number" placeholder="Your Phone Number"><br><br>
+        <input type="text" id="phone_number" name="phone_number" value="{{ phone_number }}"><br><br>
 
-        <input type="text" id="company_name" name="company_name" placeholder="Your Company Name"><br><br>
+        <input type="text" id="company_name" name="company_name" value="{{ company_name }}"><br><br>
 
-        <input type="text" id="client_name" name="client_name" placeholder="Client's Name"><br><br>
+        <input type="text" id="client_name" name="client_name" value="{{ client_name }}"><br><br>
 
-        <input type="text" id="occasion" name="occasion" placeholder="Occasion"><br><br>
+        <input type="text" id="details" name="details" value="{{ details }}"><br><br>
 
         <select id="tone" name="tone">
             <option value="formal">Formal</option>
             <option value="casual">Casual</option>
+            <option value="Apologetic">Apologetic</option>
+            <option value="Urgent">Urgent</option>
+            <option value="Funny">Funny</option>
         </select><br><br>
         <div id="container">
         <input type="submit" name="generate_text" value="Generate Text">&nbsp;&nbsp;<input type="submit" name="generate_email" value="Generate Email">
